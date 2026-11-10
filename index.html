@@ -1,39 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Vega-Lite Visualization</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vega-Lite Visualization blah</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
     body { font-family: sans-serif; margin: 2rem; }
-    #vis { width: 50%; height: 800px; }
+    #vis { width: 50%; max-width: 800px; }
   </style>
 </head>
 <body>
-  <h1>Vega-Lite Visualization</h1>
+  <h1>Vega-Lite Visualization blahh</h1>
   <div id="vis"></div>
-  <script>
-    const spec = {
-      $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-      title: "Sample Bar Chart",
-      data: {
-        values: [
-          { category: "A", value: 45 },
-          { category: "B", value: 80 },
-          { category: "C", value: 60 },
-          { category: "D", value: 95 }
-        ]
-      },
-      mark: "bar",
-      encoding: {
-        x: { field: "category", type: "nominal", title: "Category" },
-        y: { field: "value", type: "quantitative", title: "Value" }
-      }
-    };
 
-    vegaEmbed("#vis", spec);
+  <script>
+    fetch('spec.json')
+      .then(res => res.json())
+      .then(spec => vegaEmbed('#vis', spec, { actions: false }))
+      .catch(console.error);
   </script>
 </body>
 </html>
