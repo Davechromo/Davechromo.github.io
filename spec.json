@@ -1,5 +1,4 @@
 {
-  "$schema": "https://cdn.jsdelivr.net/npm/vega-lite@5/schema.json",
   "description": "A simple bar chart with embedded data.",
   "data": {
     "values": [
