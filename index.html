@@ -3,43 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vega-Lite Visualization</title>
+  <title>Vega-Lite Visualization blah</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
     body { font-family: sans-serif; margin: 2rem; }
-    #vis { width: 100%; max-width: 800px; height: 500px; }
-    #error { color: red; margin-top: 1rem; }
+    #vis { width: 50%; max-width: 800px; }
   </style>
 </head>
 <body>
-  <h1>Vega-Lite Visualization</h1>
+  <h1>Vega-Lite Visualization blahh</h1>
   <div id="vis"></div>
-  <div id="error"></div>
 
   <script>
-    (function () {
-      var errorEl = document.getElementById('error');
-
-      function showError(msg) {
-        errorEl.textContent = 'Error: ' + msg;
-        console.error(msg);
-      }
-
-      fetch('spec.json')
-        .then(function (res) {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.json();
-        })
-        .then(function (spec) {
-          console.log('Spec loaded:', spec);
-          vegaEmbed('#vis', spec, { actions: false, theme: 'default' })
-            .then(function () { console.log('Chart rendered'); })
-            .catch(function (err) { showError(err.message); });
-        })
-        .catch(function (err) { showError(err.message); });
-    })();
+    fetch('spec.json')
+      .then(res => res.json())
+      .then(spec => vegaEmbed('#vis', spec, { actions: false }))
+      .catch(console.error);
   </script>
 </body>
 </html>
